@@ -3,7 +3,7 @@ import Image from "next/image";
 interface AvatarProps {
     author: {
         id?: number;
-        name?: string;
+        name: string;
         username: string;
         avatar: string;
     }
@@ -11,14 +11,17 @@ interface AvatarProps {
 
 export function Avatar({ author }: AvatarProps) {
     return (
-        <div>
+        <div className="flex justify-between">
+           <div />
+           <div className="flex items-center gap-[4.5px]">
             <Image 
-                src={author.avatar} 
-                alt={author.username} 
-                width={32} 
-                height={32} 
-            />
-            <span>{author.username}</span>
+                    src={author.avatar} 
+                    alt={author.name} 
+                    width={32} 
+                    height={32} 
+                />
+                <span>@{author.username}</span>
+           </div>
         </div>
     )
 }
